@@ -1,0 +1,2574 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+    <HEAD>
+        
+        <META http-equiv="X-UA-Compatible" content="IE=edge"/>
+        
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        
+        <TITLE>고려시대 史料 Database</TITLE>
+        
+        <LINK rel="stylesheet" type="text/css" href="/KOREA/css/style.css?ver=2.5"/>
+        
+        <LINK href="/KOREA/css/red.css" rel="stylesheet" type="text/css"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/jquery.min.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/spin.js"/>
+        <STYLE type="text/css"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/layout.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/nikhhdb.js?ver=1.3"/>
+        
+        <!-- <script type="text/javascript" src="/KOREA/js/jquery.selectbox-0.2.js"></script> -->
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/jquery.heapbox-0.9.4.js"/>
+        <!--heapbox 181201-->
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/common.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/makePCookie.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/underscore.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/backbone.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/handlebars-v3.0.0.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/registerHandler.js?ver=2.0"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/template/loadTemplate.js?ver=2.1"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/model/BookModel.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/model/LevelModel.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/model/KingYearModel.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/model/KingModel.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/model/ArticleModel.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/model/ChronologyModel.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/view/DocumentView.js?ver=2.1"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/view/KingYearView.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/view/KingListView.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/view/ArticleView.js?ver=1.1"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/view/ChronologyView.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/webime/search.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/webime/common.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/webime/tiny_mce_src.js"/>
+         
+
+        <SCRIPT type="text/javascript" src="/KOREA/js/model/gsmListModel.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/view/gsmListView.js"/>
+        
+        <SCRIPT type="text/javascript" src="/KOREA/js/view/GsmArticleView.js"/>
+        
+        <SCRIPT type="text/javascript">
+$(document).ready(function() {
+	
+});
+
+//관련사이트 링크 선택시 
+$("select#ft_slt").change(function() {
+    window.open($(this).val(), "_blank");
+});
+//##글씨크게/작게------------------------------------------------------------
+//Specify affected tags. Add or remove from list:
+var targets = new Array( 'div','td','tr','li','ul','h1','h2','h3','h4','h5','h6','span', 'input', 'em','a');
+//Specify spectrum of different font sizes:
+var sizes = new Array( '9pt','10pt','11pt', '12pt', '14pt', '16pt', '18pt', '21pt', '24pt','28pt'  );
+var startSize = 4;
+function ts( target, inc ) {
+	if (!document.getElementById) return;
+ 	var d = document, cEl = null, size = startSize, i, j, cTags;
+ 	size += inc;
+	if ( size &lt; 0 ){ //폰트 크기를 0 이하로 내릴 수 없게 설정
+		size = 0;
+	}
+ 	if ( size &gt; sizes.length ){ //폰트 크기를 6 이상으로 올릴 수 없게 설정
+  		size = sizes.length;
+ 	}
+ 	startSize = size; 
+ 	if ( !( cEl = d.getElementById( target ) ) ){
+  		cEl = d.getElementsByTagName( target )[ 0 ];
+ 	}
+ 	if(cEl){
+	 	cEl.style.fontSize = sizes[ size ];
+	 	for ( i = 0 ; i &lt; targets.length ; i++ ) {
+	  		cTags = cEl.getElementsByTagName( targets[ i ] ); //getElementsByTagName을 사용하면 배열로 받아짐
+	  		for ( j = 0 ; j &lt; cTags.length ; j++ ){
+	   			cTags[ j ].style.fontSize = sizes[ size ];
+	  		}
+	 	}
+	}
+}
+//##글씨크게/작게------------------------------------------------------------
+
+function fnScrollToId(objId) {
+	//console.log("objId=" + objId);
+	$('html, body').animate({
+        scrollTop: $("#" + objId).offset().top
+    }, 1000);
+}
+</SCRIPT>
+        
+        <LINK rel="stylesheet" href="http://db.history.go.kr/KOREA/js/webime/themes/simple/skins/default/ui.css"/>
+    </HEAD>
+    
+    <BODY>
+        	
+        <DIV id="wrap">
+            		
+            <!-- header -->
+            		
+
+
+            <SCRIPT>
+function getContextPath(){
+	return '/KOREA';
+}
+</SCRIPT>
+            
+            <!--header-->
+                
+            <DIV id="header">
+                 
+        
+                <!--wrap-->
+                        
+                <DIV class="wrap">
+                            	
+                    <H1>
+                        <A href="/KOREA/">
+                            <IMG src="/KOREA/images/logo.gif" title="고려시대 史料 Database" alt="고려시대 史料 Database"/>
+                        </A>
+                    </H1>
+                                
+                    <DIV class="search">
+                                    	
+                        <INPUT type="text" id="totalKeyword" name="totalKeyword" onkeydown="handleEnter(event);" aria-hidden="true" style="display: none;"/>
+                        <SPAN id="totalKeyword_container" class="mceEditor defaultSimpleSkin" style="vertical-align:middle; margin-right:10px;">
+                            <TABLE cellpadding="0" cellspacing="0" class="mceLayout" style="width: 234px; height: 32px;">
+                                <TBODY>
+                                    <TR>
+                                        <TD style="padding:0px; border:0px; height:0px;">
+                                            <DIV class="mceIframeContainer">
+                                                <IFRAME id="totalKeyword_ifr" src="javascript:&quot;&quot;" frameborder="0" scrolling="no" allowtransparency="true" title="{#aria.rich_text_area}" style="width: 234px; height: 32px; padding-top: 0px; padding-bottom: 0px; display: block; border: 0px; background-color: rgb(80, 88, 100);"/>
+                                            </DIV>
+                                        </TD>
+                                    </TR>
+                                </TBODY>
+                            </TABLE>
+                        </SPAN>
+                        <LABEL for="totalKeyword"/>
+                                    	
+                        <SCRIPT type="text/javascript">
+					$(document).ready(function() { embedIme("totalKeyword"); });
+				</SCRIPT>
+                        				
+                        <DIV style="top:0px;left: 234px; position: absolute;">
+                                        	
+                            <A href="javascript:OpenHanjaInput('totalKeyword');" class="btn_char_sub" title="문자입력기">
+                                <IMG src="/KOREA/images/icon_key_w.png" alt="문자입력기"/>
+                            </A>
+                                            
+                            <A href="javascript:;" class="bt_search" id="btnTotalSearch" title="통합검색" alt="통합검색">검색</A>
+                                            
+                            <A href="javascript:;" onclick="searchThesaurus();" class="bt_plus" title="시소러스 검색" alt="시소러스 검색">시소러스 검색</A>
+                                            
+                            <A href="javascript:;" onclick="searchDetail();" class="bt_plus" title="상세 검색" alt="상세 검색">상세 검색</A>
+                                            
+                        </DIV>
+                                    
+                    </DIV>
+                                
+                    <DIV id="tm">
+                        <!-- <a href="javascript:" onclick="goIntroduction('http://db.history.go.kr/introduction/intro_kr.html');">소개</a>|<a href="http://db.history.go.kr/help/e_help.html" target="_blank">도움말</a>|-->
+                        <A href="http://www.history.go.kr" target="_blank" title="국사편찬위원회" alt="국사편찬위원회">국사편찬위원회</A>
+                        |
+                        <A href="http://db.history.go.kr" target="_blank" title="한국사데이터베이스" alt="한국사데이터베이스">한국사데이터베이스</A>
+                    </DIV>
+                            
+                </DIV>
+                        
+                <!--//wrap-->
+                 
+    
+            </DIV>
+                
+            <!--//header-->
+             
+
+
+		
+            <!-- container -->
+            		
+
+
+
+            <LINK rel="stylesheet" type="text/css" href="/KOREA/js/jquery-cluetip-master/jquery.cluetip.css"/>
+            
+            <SCRIPT type="text/javascript" src="/KOREA/js/jquery-cluetip-master/lib/jquery.hoverIntent.js"/>
+            
+            <SCRIPT type="text/javascript" src="/KOREA/js/jquery-cluetip-master/jquery.cluetip.js"/>
+            
+            <!--container-->
+            
+            <DIV id="container">
+                	
+                <!--wrap-->
+                	
+                <DIV class="wrap">
+                    		
+                    <TABLE class="tb_top-area">
+                        			
+                        <TBODY>
+                            				
+                            <TR>
+                                					
+                                <TD class="tit">
+                                    						
+                                    <A href="./level.do?itemId=kj&amp;types=r" title="고려사자료 메인페이지" alt="고려사자료 메인페이지">고려사절요</A>
+                                    					
+                                </TD>
+                                					
+                                <TD class="location">
+                                    <A href="/KOREA/item/level.do?itemId=kj&amp;types=o">高麗史節要</A>
+                                     &gt; 권별 보기 &gt; 
+                                    <A href="#book-show/kj/卷2">卷2</A>
+                                     &gt; 
+                                    <A href="#series-show/卷2/kj_002_0010">惠宗義恭大王</A>
+                                     &gt; 
+                                    <A href="#years-show/卷2/kj_002_0010_0020">惠宗 元年</A>
+                                     &gt; 
+                                    <A href="#month-show/卷2/kj_002_0010_0020_0010">미상</A>
+                                     &gt; 
+                                    <A href="#detail/kj_002_0010_0020_0010_0010">후진에 사신을 파견하여 왕위 계승을 알리다</A>
+                                </TD>
+                                					
+                                <TD class="met">
+                                    						
+                                    <DIV class="box">
+                                        							
+                                        <DIV class="menu">
+                                            								
+                                            <A href="javascript:goIntroduction('/introduction/intro_kj.html')" title="자료소개" alt="자료소개">자료소개</A>
+                                            <EM>
+                                                |
+                                                <!-- </em><a href="#self" id="bt_sub_search">하위자료검색</a><em>|-->
+                                            </EM>
+                                            <A href="javascript:itemSearchDetail('kj')" title="자료상세검색" alt="자료상세검색">자료상세검색</A>
+                                            								
+                                            <!-- <div id="sub_search"><input type="text" id="sub_search_txt" /><label for="sub_search_txt"></label><a href="#self" class="bt_search" title="상세검색" alt="상세검색">검색</a></div> -->
+                                            							
+                                        </DIV>
+                                        							
+                                        <DIV class="btns">
+                                            								
+                                            <SPAN class="lang" id="langType">
+                                                <A href="http://db.history.go.kr/KOREA/item/level.do?itemId=kj&amp;bookId=%E5%8D%B72&amp;types=o#detail/kj_002_0010_0020_0010_0010" class="on" title="원문" alt="원문">원문</A>
+                                                <A href="http://db.history.go.kr/KOREA/item/level.do?itemId=kj&amp;bookId=%E5%8D%B72&amp;types=r#detail/kj_002r_0010_0020_0010_0010" title="국문" alt="국문">국문</A>
+                                            </SPAN>
+                                            								
+                                            <SPAN class="fsize" style="">
+                                                <A href="javascript:;" onclick="ts('cont_view',+1);" class="bt04">글자크게</A>
+                                                <A href="javascript:;" onclick="ts('cont_view',-1);" class="bt05">글자작게</A>
+                                            </SPAN>
+                                            								
+                                            <SPAN class="ics">
+                                                <A href="javascript:downloadItemLevel()" class="bt01" title="기사목록저장" alt="기사목록저장" style="display: none;">저장</A>
+                                                <A href="javascript:bodyPrint()" class="bt02" title="인쇄" alt="인쇄">인쇄</A>
+                                                <A href="javascript:" class="bt03" onclick="registerErrorReport()" title="오류신고" alt="오류신고">오류신고</A>
+                                            </SPAN>
+                                            							
+                                        </DIV>
+                                        						
+                                    </DIV>
+                                    					
+                                </TD>
+                                					
+                                <!-- <td class="book-view" style="display: none;"><a href="javascript:goBookViewer()">책보기</a></td>-->
+                                				
+                            </TR>
+                            			
+                        </TBODY>
+                        		
+                    </TABLE>
+                    		
+                    <!--contents-->
+                    		
+                    <DIV id="contents">
+                        			
+                        <DIV class="peruse" style="display: none;">
+                            				
+                            <DIV class="by-book">
+                                					
+                                <H3>
+                                    <IMG src="../images/tit_peruse-by-book.gif" alt="권별 보기"/>
+                                    권별 보기
+                                </H3>
+                                					
+                                <UL>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=進高麗史節要箋&amp;types=o#book-show/kj/進高麗史節要箋">進高麗史節要箋</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=高麗史節要凡例&amp;types=o#book-show/kj/高麗史節要凡例">高麗史節要凡例</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=修史官&amp;types=o#book-show/kj/修史官">修史官</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=高麗史節要目錄&amp;types=o#book-show/kj/高麗史節要目錄">高麗史節要目錄</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷1&amp;types=o#book-show/kj/卷1">卷1 [太祖 元年~太祖 26年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷2&amp;types=o#book-show/kj/卷2">卷2 [惠宗 元年~穆宗 12年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷3&amp;types=o#book-show/kj/卷3">卷3 [顯宗 元年~顯宗 22年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷4&amp;types=o#book-show/kj/卷4">卷4 [德宗 元年~文宗 10年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷5&amp;types=o#book-show/kj/卷5">卷5 [文宗 11年~順宗 37年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷6&amp;types=o#book-show/kj/卷6">卷6 [宣宗 1年~肅宗 7年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷7&amp;types=o#book-show/kj/卷7">卷7 [肅宗 8年~睿宗 7年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷8&amp;types=o#book-show/kj/卷8">卷8 [睿宗 8年~睿宗 17年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷9&amp;types=o#book-show/kj/卷9">卷9 [仁宗 1年~仁宗 9年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷10&amp;types=o#book-show/kj/卷10">卷10 [仁宗 10年~仁宗 24年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷11&amp;types=o#book-show/kj/卷11">卷11 [毅宗 1年~毅宗 24年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷12&amp;types=o#book-show/kj/卷12">卷12 [明宗 1年~明宗 13年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷13&amp;types=o#book-show/kj/卷13">卷13 [明宗 14年~明宗 27年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷14&amp;types=o#book-show/kj/卷14">卷14 [神宗 1年~高宗 3年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷15&amp;types=o#book-show/kj/卷15">卷15 [高宗 4年~高宗 16年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷16&amp;types=o#book-show/kj/卷16">卷16 [高宗 17年~高宗 37年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷17&amp;types=o#book-show/kj/卷17">卷17 [高宗 38年~高宗 46年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷18&amp;types=o#book-show/kj/卷18">卷18 [元宗 1年~元宗 11年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷19&amp;types=o#book-show/kj/卷19">卷19 [元宗 12年~忠烈王 3年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷20&amp;types=o#book-show/kj/卷20">卷20 [忠烈王 3年~忠烈王 11年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷21&amp;types=o#book-show/kj/卷21">卷21 [忠烈王 12年~忠烈王 23年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷22&amp;types=o#book-show/kj/卷22">卷22 [忠烈王 24年~忠烈王 30年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷23&amp;types=o#book-show/kj/卷23">卷23 [忠烈王 31年~忠宣王 5年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷24&amp;types=o#book-show/kj/卷24">卷24 [忠肅王 1年~忠肅王 17年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷25&amp;types=o#book-show/kj/卷25">卷25 [忠惠王 1年~忠穆王 4年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷26&amp;types=o#book-show/kj/卷26">卷26 [忠定王 1年~恭愍王 6年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷27&amp;types=o#book-show/kj/卷27">卷27 [恭愍王 7年~恭愍王 12年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷28&amp;types=o#book-show/kj/卷28">卷28 [恭愍王 13年~恭愍王 18年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷29&amp;types=o#book-show/kj/卷29">卷29 [恭愍王 19年~恭愍王 23年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷30&amp;types=o#book-show/kj/卷30">卷30 [辛禑 1年~辛禑 4年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷31&amp;types=o#book-show/kj/卷31">卷31 [辛禑 5年~辛禑 8年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷32&amp;types=o#book-show/kj/卷32">卷32 [辛禑 9年~辛禑 13年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷33&amp;types=o#book-show/kj/卷33">卷33 [辛禑 14年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷34&amp;types=o#book-show/kj/卷34">卷34 [昌王 1年~恭讓王 2年]</A>
+                                        							
+                                    </LI>
+                                    						
+							
+                                    <LI>
+                                        								
+                                        <A href="./level.do?itemId=kj&amp;bookId=卷35&amp;types=o#book-show/kj/卷35">卷35 [恭讓王 3年~恭讓王 4年]</A>
+                                        							
+                                    </LI>
+                                    						
+					
+                                </UL>
+                                				
+                            </DIV>
+                            				
+                            <DIV class="by-king">
+                                					
+                                <H3>
+                                    <IMG src="../images/tit_peruse-by-king.gif" alt="왕대별 보기"/>
+                                    왕대별 보기
+                                </H3>
+                                					
+					
+                                <DIV class="list">
+                                    						
+                                    <UL class="first">
+							
+						</UL>
+                                    						
+                                    <UL class="second">
+							
+						</UL>
+                                    						
+                                    <UL class="third">
+							
+						</UL>
+                                    					
+                                </DIV>
+                                				
+                            </DIV>
+                            			
+                        </DIV>
+                        			
+                        <!--select-menu-->
+                        			
+                        <DIV class="select-menu">
+                            				
+                            <!--p-menu-->
+                            				
+                            <DIV class="p-menu first">
+                                					
+                                <A href="javascript:" title="권별 보기" alt="권별 보기">권별 보기</A>
+                                					
+                                <DIV class="layer">
+                                    						
+                                    <UL class="by-book">
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=進高麗史節要箋&amp;types=o#book-show/kj/進高麗史節要箋">進高麗史節要箋</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=高麗史節要凡例&amp;types=o#book-show/kj/高麗史節要凡例">高麗史節要凡例</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=修史官&amp;types=o#book-show/kj/修史官">修史官</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=高麗史節要目錄&amp;types=o#book-show/kj/高麗史節要目錄">高麗史節要目錄</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷1&amp;types=o#book-show/kj/卷1">卷1 [太祖 元年~太祖 26年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷2&amp;types=o#book-show/kj/卷2">卷2 [惠宗 元年~穆宗 12年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷3&amp;types=o#book-show/kj/卷3">卷3 [顯宗 元年~顯宗 22年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷4&amp;types=o#book-show/kj/卷4">卷4 [德宗 元年~文宗 10年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷5&amp;types=o#book-show/kj/卷5">卷5 [文宗 11年~順宗 37年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷6&amp;types=o#book-show/kj/卷6">卷6 [宣宗 1年~肅宗 7年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷7&amp;types=o#book-show/kj/卷7">卷7 [肅宗 8年~睿宗 7年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷8&amp;types=o#book-show/kj/卷8">卷8 [睿宗 8年~睿宗 17年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷9&amp;types=o#book-show/kj/卷9">卷9 [仁宗 1年~仁宗 9年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷10&amp;types=o#book-show/kj/卷10">卷10 [仁宗 10年~仁宗 24年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷11&amp;types=o#book-show/kj/卷11">卷11 [毅宗 1年~毅宗 24年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷12&amp;types=o#book-show/kj/卷12">卷12 [明宗 1年~明宗 13年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷13&amp;types=o#book-show/kj/卷13">卷13 [明宗 14年~明宗 27年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷14&amp;types=o#book-show/kj/卷14">卷14 [神宗 1年~高宗 3年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷15&amp;types=o#book-show/kj/卷15">卷15 [高宗 4年~高宗 16年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷16&amp;types=o#book-show/kj/卷16">卷16 [高宗 17年~高宗 37年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷17&amp;types=o#book-show/kj/卷17">卷17 [高宗 38年~高宗 46年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷18&amp;types=o#book-show/kj/卷18">卷18 [元宗 1年~元宗 11年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷19&amp;types=o#book-show/kj/卷19">卷19 [元宗 12年~忠烈王 3年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷20&amp;types=o#book-show/kj/卷20">卷20 [忠烈王 3年~忠烈王 11年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷21&amp;types=o#book-show/kj/卷21">卷21 [忠烈王 12年~忠烈王 23年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷22&amp;types=o#book-show/kj/卷22">卷22 [忠烈王 24年~忠烈王 30年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷23&amp;types=o#book-show/kj/卷23">卷23 [忠烈王 31年~忠宣王 5年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷24&amp;types=o#book-show/kj/卷24">卷24 [忠肅王 1年~忠肅王 17年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷25&amp;types=o#book-show/kj/卷25">卷25 [忠惠王 1年~忠穆王 4年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷26&amp;types=o#book-show/kj/卷26">卷26 [忠定王 1年~恭愍王 6年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷27&amp;types=o#book-show/kj/卷27">卷27 [恭愍王 7年~恭愍王 12年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷28&amp;types=o#book-show/kj/卷28">卷28 [恭愍王 13年~恭愍王 18年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷29&amp;types=o#book-show/kj/卷29">卷29 [恭愍王 19年~恭愍王 23年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷30&amp;types=o#book-show/kj/卷30">卷30 [辛禑 1年~辛禑 4年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷31&amp;types=o#book-show/kj/卷31">卷31 [辛禑 5年~辛禑 8年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷32&amp;types=o#book-show/kj/卷32">卷32 [辛禑 9年~辛禑 13年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷33&amp;types=o#book-show/kj/卷33">卷33 [辛禑 14年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷34&amp;types=o#book-show/kj/卷34">卷34 [昌王 1年~恭讓王 2年]</A>
+                                        </LI>
+                                        							
+								
+                                        <LI>
+                                            <A href="./level.do?itemId=kj&amp;bookId=卷35&amp;types=o#book-show/kj/卷35">卷35 [恭讓王 3年~恭讓王 4年]</A>
+                                        </LI>
+                                        							
+						
+                                    </UL>
+                                    					
+                                </DIV>
+                                				
+                            </DIV>
+                            				
+                            <!--//p-menu-->
+                            				
+                            <!--p-menu-->
+                            				
+                            <DIV class="p-menu">
+                                					
+                                <A href="javascript:" title="왕대별 보기" alt="왕대별 보기">왕대별 보기</A>
+                                					
+                                <DIV class="layer line" id="king_select_menu_layer">
+                                    						
+                                    <UL class="by-king" id="king_select_menu">
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="1" title="태조(太祖)">태조(太祖)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="2" title="혜종(惠宗)">혜종(惠宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="3" title="정종(定宗)">정종(定宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="4" title="광종(光宗)">광종(光宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="5" title="경종(景宗)">경종(景宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="6" title="성종(成宗)">성종(成宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="7" title="목종(穆宗)">목종(穆宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="8" title="현종(顯宗)">현종(顯宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="9" title="덕종(德宗)">덕종(德宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="10" title="정종(靖宗)">정종(靖宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="11" title="문종(文宗)">문종(文宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="12" title="순종(順宗)">순종(順宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="13" title="선종(宣宗)">선종(宣宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="14" title="헌종(獻宗)">헌종(獻宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="15" title="숙종(肅宗)">숙종(肅宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="16" title="예종(睿宗)">예종(睿宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="17" title="인종(仁宗)">인종(仁宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="18" title="의종(毅宗)">의종(毅宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="19" title="명종(明宗)">명종(明宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="20" title="신종(神宗)">신종(神宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="21" title="희종(熙宗)">희종(熙宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="22" title="강종(康宗)">강종(康宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="23" title="고종(高宗)">고종(高宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="24" title="원종(元宗)">원종(元宗)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="25" title="충렬왕(忠烈王)">충렬왕(忠烈王)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="26" title="충선왕(忠宣王)">충선왕(忠宣王)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="27" title="충숙왕(忠肅王)">충숙왕(忠肅王)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="28" title="충혜왕(忠惠王)">충혜왕(忠惠王)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="29" title="충숙왕(후)(忠肅王(後))">충숙왕(후)(忠肅王(後))</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="30" title="충혜왕(후)(忠惠王(後))">충혜왕(후)(忠惠王(後))</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="31" title="충목왕(忠穆王)">충목왕(忠穆王)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="32" title="충정왕(忠定王)">충정왕(忠定王)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="33" title="공민왕(恭愍王)">공민왕(恭愍王)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="34" title="우왕(禑王)">우왕(禑王)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="35" title="창왕(昌王)">창왕(昌王)</A>
+                                        </LI>
+                                        <LI>
+                                            	
+                                            <A href="javascript:" data-kingorder="36" title="공양왕(恭讓王)">공양왕(恭讓王)</A>
+                                        </LI>
+                                    </UL>
+                                    						
+                                    <DIV class="by-king_d2">
+						</DIV>
+                                    					
+                                </DIV>
+                                				
+                            </DIV>
+                            				
+                            <!--//p-menu-->
+                            				
+                            <!--g-word-->
+                            				
+				
+                            <!--//g-word-->
+                            			
+                        </DIV>
+                        			
+                        <!--//select-menu-->
+                        			
+                        <!--peruse_by-book-->
+                        			
+                        <DIV class="peruse_by-book" style="display: none;">
+                            <UL>
+                                <LI id="view_book_進高麗史節要箋">
+                                    	
+                                    <A href="#book-show/kj/進高麗史節要箋" class="book">進高麗史節要箋</A>
+                                    
+                                </LI>
+                                <LI id="view_book_高麗史節要凡例">
+                                    	
+                                    <A href="#book-show/kj/高麗史節要凡例" class="book">高麗史節要凡例</A>
+                                    
+                                </LI>
+                                <LI id="view_book_修史官">
+                                    	
+                                    <A href="#book-show/kj/修史官" class="book">修史官</A>
+                                    
+                                </LI>
+                                <LI id="view_book_高麗史節要目錄">
+                                    	
+                                    <A href="#book-show/kj/高麗史節要目錄" class="book">高麗史節要目錄</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷1">
+                                    	
+                                    <A href="#book-show/kj/卷1" class="book">卷1 [太祖 元年~太祖 26年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷2">
+                                    	
+                                    <A href="#book-show/kj/卷2" class="book">卷2 [惠宗 元年~穆宗 12年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷3">
+                                    	
+                                    <A href="#book-show/kj/卷3" class="book">卷3 [顯宗 元年~顯宗 22年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷4">
+                                    	
+                                    <A href="#book-show/kj/卷4" class="book">卷4 [德宗 元年~文宗 10年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷5">
+                                    	
+                                    <A href="#book-show/kj/卷5" class="book">卷5 [文宗 11年~順宗 37年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷6">
+                                    	
+                                    <A href="#book-show/kj/卷6" class="book">卷6 [宣宗 1年~肅宗 7年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷7">
+                                    	
+                                    <A href="#book-show/kj/卷7" class="book">卷7 [肅宗 8年~睿宗 7年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷8">
+                                    	
+                                    <A href="#book-show/kj/卷8" class="book">卷8 [睿宗 8年~睿宗 17年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷9">
+                                    	
+                                    <A href="#book-show/kj/卷9" class="book">卷9 [仁宗 1年~仁宗 9年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷10">
+                                    	
+                                    <A href="#book-show/kj/卷10" class="book">卷10 [仁宗 10年~仁宗 24年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷11">
+                                    	
+                                    <A href="#book-show/kj/卷11" class="book">卷11 [毅宗 1年~毅宗 24年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷12">
+                                    	
+                                    <A href="#book-show/kj/卷12" class="book">卷12 [明宗 1年~明宗 13年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷13">
+                                    	
+                                    <A href="#book-show/kj/卷13" class="book">卷13 [明宗 14年~明宗 27年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷14">
+                                    	
+                                    <A href="#book-show/kj/卷14" class="book">卷14 [神宗 1年~高宗 3年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷15">
+                                    	
+                                    <A href="#book-show/kj/卷15" class="book">卷15 [高宗 4年~高宗 16年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷16">
+                                    	
+                                    <A href="#book-show/kj/卷16" class="book">卷16 [高宗 17年~高宗 37年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷17">
+                                    	
+                                    <A href="#book-show/kj/卷17" class="book">卷17 [高宗 38年~高宗 46年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷18">
+                                    	
+                                    <A href="#book-show/kj/卷18" class="book">卷18 [元宗 1年~元宗 11年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷19">
+                                    	
+                                    <A href="#book-show/kj/卷19" class="book">卷19 [元宗 12年~忠烈王 3年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷20">
+                                    	
+                                    <A href="#book-show/kj/卷20" class="book">卷20 [忠烈王 3年~忠烈王 11年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷21">
+                                    	
+                                    <A href="#book-show/kj/卷21" class="book">卷21 [忠烈王 12年~忠烈王 23年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷22">
+                                    	
+                                    <A href="#book-show/kj/卷22" class="book">卷22 [忠烈王 24年~忠烈王 30年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷23">
+                                    	
+                                    <A href="#book-show/kj/卷23" class="book">卷23 [忠烈王 31年~忠宣王 5年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷24">
+                                    	
+                                    <A href="#book-show/kj/卷24" class="book">卷24 [忠肅王 1年~忠肅王 17年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷25">
+                                    	
+                                    <A href="#book-show/kj/卷25" class="book">卷25 [忠惠王 1年~忠穆王 4年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷26">
+                                    	
+                                    <A href="#book-show/kj/卷26" class="book">卷26 [忠定王 1年~恭愍王 6年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷27">
+                                    	
+                                    <A href="#book-show/kj/卷27" class="book">卷27 [恭愍王 7年~恭愍王 12年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷28">
+                                    	
+                                    <A href="#book-show/kj/卷28" class="book">卷28 [恭愍王 13年~恭愍王 18年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷29">
+                                    	
+                                    <A href="#book-show/kj/卷29" class="book">卷29 [恭愍王 19年~恭愍王 23年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷30">
+                                    	
+                                    <A href="#book-show/kj/卷30" class="book">卷30 [辛禑 1年~辛禑 4年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷31">
+                                    	
+                                    <A href="#book-show/kj/卷31" class="book">卷31 [辛禑 5年~辛禑 8年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷32">
+                                    	
+                                    <A href="#book-show/kj/卷32" class="book">卷32 [辛禑 9年~辛禑 13年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷33">
+                                    	
+                                    <A href="#book-show/kj/卷33" class="book">卷33 [辛禑 14年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷34">
+                                    	
+                                    <A href="#book-show/kj/卷34" class="book">卷34 [昌王 1年~恭讓王 2年]</A>
+                                    
+                                </LI>
+                                <LI id="view_book_卷35">
+                                    	
+                                    <A href="#book-show/kj/卷35" class="book">卷35 [恭讓王 3年~恭讓王 4年]</A>
+                                    
+                                </LI>
+                            </UL>
+                        </DIV>
+                        			
+                        <!--//peruse_by-book-->
+                        			
+                        <DIV class="peruse_by-king" style="display: none;">
+			</DIV>
+                        			
+                        <!--article_view-->
+                        			
+                        <DIV class="article_view" style="display: block;">
+                            	
+                            <DIV class="articleLocation">
+                                			
+			高麗史節要 卷2
+			
+                                <EM>&gt;</EM>
+                                			
+			惠宗義恭大王
+			
+                                <EM>&gt;</EM>
+                                			
+			惠宗 元年
+			
+                                <EM>&gt;</EM>
+                                			
+			미상
+			
+                                <EM>&gt;</EM>
+                                			
+			후진에 사신을 파견하여 왕위 계승을 알리다
+			
+	
+                            </DIV>
+                            
+                            <!--hoi-->
+                            
+                            <DIV class="hoi">
+                                	
+                                <DIV class="ic_hoi">
+                                    		
+                                    <IMG src="../images/ic_hoi_red.gif" alt="hoi"/>
+                                    		
+                                    <UL>
+                                        			
+                                        <LI>
+                                            <A href="javascript:fncCopyUrl()" title="URL 복사하기" alt="URL 복사하기">URL 복사하기</A>
+                                        </LI>
+                                        			
+                                        <LI>
+                                            <A href="javascript:fncCopyId()" title="ID 복사하기" alt="ID 복사하기">ID 복사하기</A>
+                                        </LI>
+                                        			
+                                        <LI>
+                                            <A href="javascript:fncHoiHelp()" title="자료인용방법" alt="자료인용방법">자료인용방법</A>
+                                        </LI>
+                                        		
+                                    </UL>
+                                    	
+                                </DIV>
+                                	
+                                <SPAN class="tx">kj_002_0010_0020_0010_0010</SPAN>
+                                
+                            </DIV>
+                            
+                            <!--//hoi-->
+                            
+                            <!--controller-->
+                            
+                            <DIV class="controller">
+                                	
+                                <DIV class="tx">
+                                    		
+                                    <!-- <h3>후진에 사신을 파견하여 왕위 계승을 알리다</h3> -->
+                                    			
+                                    <DIV class="date">
+				944년 미상(음)
+				
+				
+			</DIV>
+                                    	
+                                </DIV>
+                                	
+                                <DIV class="btns" style="margin-bottom: 15px;">
+                                    		
+                                    <NOBR>
+                                        			
+						
+                                        <A href="/KOREA/item/level.do?levelId=kj_002_0010_0020_0010" class="bt04" title="상위자료">상위로 가기</A>
+                                        						
+                                        <A class="none bt05" title="이전자료">이전으로 가기</A>
+                                        						
+                                        <A class="none bt06" title="다음자료">다음으로 가기</A>
+                                        		
+                                    </NOBR>
+                                    	
+                                </DIV>
+                                	
+                                <DIV class="bt_st" style="left: 0px; margin-left: -2px;">
+                                    		
+                                    <NOBR>
+                                        					
+                                        <A href="javascript:;" class="bt_txt bt_st02" title="원문이미지" alt="원문이미지">이미지</A>
+                                        					
+                                        <UL>
+                                            								
+                                            <LI>
+                                                <A href="http://kyudb.snu.ac.kr/pf01/rendererImg.do?item_cd=GJB&amp;book_cd=GK15658_00&amp;vol_no=0002&amp;page_no=1a" target="_blank">筆寫本〈奎15658〉</A>
+                                            </LI>
+                                            					
+                                        </UL>
+                                        		
+                                    </NOBR>
+                                    	
+                                </DIV>
+                                				
+                                <A href="javascript:;" onclick="goCompareViewer('kj_002_0010_0020_0010_0010');" class="bt_txt bt_st02" title="비교보기" alt="비교보기123">비교보기</A>
+                                		
+                                <!-- <a href="javascript:;" onclick="goCompareViewer('kj_002_0010_0020_0010_0010');" class="bt_txt bt_st02" title="비교보기" alt="비교보기">비교보기</a> -->
+                                			
+                                <DIV class="bt_st">
+                                    &gt;
+				
+                                    <A href="javascript:;" class="bt_txt bt_st03" title="연관사료" alt="연관사료">연관사료</A>
+                                    				
+                                    <UL>
+                                        							
+                                        <LI>
+                                            								
+                                            <A href="/KOREA/id/cnkb_010_0160_0010" target="_blank">
+                                                										
+                                                <FONT color="#f29c21">[중국사서 고려·발해유민 기사]</FONT>
+                                                									『舊五代史』卷84 晉書10 少帝4＞고려가 조공하다
+								
+                                            </A>
+                                            							
+                                        </LI>
+                                        							
+                                        <LI>
+                                            								
+                                            <A href="/KOREA/id/cnkb_020_0060_0030" target="_blank">
+                                                										
+                                                <FONT color="#f29c21">[중국사서 고려·발해유민 기사]</FONT>
+                                                									『新五代史』卷9 晉本紀9 出帝＞고려 사신 한현규, 김렴 등이 오다
+								
+                                            </A>
+                                            							
+                                        </LI>
+                                        				
+                                    </UL>
+                                    			
+                                </DIV>
+                                
+                            </DIV>
+                            
+                            <!--//controller-->
+                            
+                            <!--con-->
+                            
+                            <DIV class="con">
+                                		
+                                <DIV class="view_daily" id="view_daily_o">
+                                    			
+                                    <DIV id="cont_view" class="cont_view">
+                                        <DIV class="articleTitle">후진에 사신을 파견하여 왕위 계승을 알리다</DIV>
+                                        <DIV>
+                                            甲辰元年
+                                            <FONT color="#dd9a4c">
+                                                後晉開運元年, 契丹會同七年.
+                                                <SMALL/>
+                                            </FONT>
+                                        </DIV>
+                                        <DIV>
+                                            遣
+                                            <SPAN title="관직" style="color:#336666">廣評侍郞</SPAN>
+                                            <SPAN title="이름" style="color:#336666">韓玄珪</SPAN>
+                                            <SPAN title="관직" style="color:#336666">禮賓卿</SPAN>
+                                            <SPAN title="이름" style="color:#336666">金廉</SPAN>
+                                            如晉, 告嗣位, 遂賀破契丹.
+                                        </DIV>
+                                        <DIV/>
+                                        <BR/>
+                                    </DIV>
+                                    <SPAN class="dscArea"/>
+                                    <DIV class="indexBox">
+                                        <H2>색인어</H2>
+                                        <DIV>
+                                            <P>
+                                                <EM>이름</EM>
+                                                <A style="cursor:default;" href="javascript:;">
+                                                    <SPAN title="이름" style="color:#336666">韓玄珪</SPAN>
+                                                </A>
+                                                ,
+                                                <A style="cursor:default;" href="javascript:;">
+                                                    <SPAN title="이름" style="color:#336666">金廉</SPAN>
+                                                </A>
+                                            </P>
+                                            <P>
+                                                <EM>관직</EM>
+                                                <A style="cursor:default;" href="javascript:;">
+                                                    <SPAN title="관직" style="color:#336666">廣評侍郞</SPAN>
+                                                </A>
+                                                ,
+                                                <A style="cursor:default;" href="javascript:;">
+                                                    <SPAN title="관직" style="color:#336666">禮賓卿</SPAN>
+                                                </A>
+                                            </P>
+                                        </DIV>
+                                    </DIV>
+                                    		
+                                </DIV>
+                                		
+                                <DIV class="view_daily" id="view_daily_" style="display: none;">
+			
+		</DIV>
+                                
+                            </DIV>
+                            
+                            <!--//con-->
+                            
+                        </DIV>
+                        			
+                        <!--//article_view-->
+                        		
+                    </DIV>
+                    		
+                    <!--//contents-->
+                    	
+                </DIV>
+                	
+                <!--//wrap-->
+                	
+                <A href="javascript:window.scroll(0, 0);" id="go-top" title="맨 위로" alt="맨 위로">맨 위로</A>
+                
+            </DIV>
+            
+            <!--//container-->
+            
+            <SCRIPT id="book-list-template" type="text/x-handlebars-template">
+	&lt;a href="#book-show/{{this.itemId}}/{{this.id}}" class="book"&gt;{{this.name}}&lt;/a&gt;
+</SCRIPT>
+            
+            <SCRIPT id="series-template" type="text/x-handlebars-template">
+	&lt;dt&gt;
+		{{#if this.item.isLeaf '==' '0'}}
+			&lt;a href="#series-show/{{this.bookInfo}}/{{this.item.levelId}}" class="series"&gt;
+				{{#if this.item.seriesTitle '!=' ''}}{{this.item.seriesTitle}} {{/if}}{{this.item.mainTitle}}{{#if this.item.period '!=' ''}} [{{this.item.period}}]{{/if}}
+			&lt;/a&gt;
+		{{else}}
+			&lt;a href="#detail/{{this.item.levelId}}" class="series"&gt;
+				{{#if this.item.seriesTitle '!=' ''}}{{this.item.seriesTitle}} {{/if}}{{this.item.mainTitle}} {{#if this.item.period '!=' ''}} [{{this.item.period}}]{{/if}}
+			&lt;/a&gt;
+		{{/if}}
+	&lt;/dt&gt;
+	&lt;dd&gt;&amp;nbsp;&lt;/dd&gt;
+</SCRIPT>
+            
+            <SCRIPT id="years-template" type="text/x-handlebars-template">
+	{{#if this.item.isLeaf '==' 0}}
+		&lt;a href="#years-show/{{this.bookInfo}}/{{this.item.levelId}}" data-id="{{this.item.levelId}}" class="years"&gt;
+			{{this.item.mainTitle}}{{#if this.item.dateOccured '!=' ''}} [{{this.item.dateOccured}}]{{/if}}
+		&lt;/a&gt;
+	{{else}}
+		&lt;a href="#detail/{{this.item.levelId}}" class="years"&gt;
+			{{this.item.mainTitle}}{{#if this.item.dateOccured '!=' ''}} [{{this.item.dateOccured}}]{{/if}}
+		&lt;/a&gt;
+	{{/if}}
+</SCRIPT>
+            
+            <SCRIPT id="month-template" type="text/x-handlebars-template">
+	{{#if this.item.isLeaf '==' 0}}
+		&lt;span&gt;
+			&lt;a href="#month-show/{{this.bookInfo}}/{{this.item.levelId}}" class="normal"&gt;{{this.item.mainTitle}}&lt;/a&gt;
+			&lt;a href="#articleList/{{this.item.levelId}}" class="bt_txt bt_st01"&gt;기사 전체 보기&lt;/a&gt;
+		&lt;/span&gt;
+	{{else}}
+		&lt;span&gt;&lt;a href="#detail/{{this.item.levelId}}" class="normal"&gt;{{this.item.mainTitle}}&lt;/a&gt;&lt;/span&gt;
+	{{/if}}
+</SCRIPT>
+            
+            <SCRIPT id="day-template" type="text/x-handlebars-template">
+	{{#each []}}
+		&lt;li&gt;
+			&lt;span&gt;
+				&lt;a href="#detail/{{this.levelId}}" class="normal"&gt;{{mainTitle}}&lt;/a&gt;
+				{{#if linkUrl '!=' ''}}
+					&lt;div class="bt_st"&gt;
+						&lt;a href="javascript:;" class="bt_txt bt_st02 ml10"&gt;원문이미지&lt;/a&gt;
+						&lt;ul class="m110"&gt;
+							{{#each this.linkList}}
+								&lt;li&gt;
+									&lt;a href="{{this.linkUrl}}" target="_blank"&gt;{{this.linkText}}&lt;/a&gt;
+								&lt;/li&gt;
+							{{/each}}
+							{{#if existImage "==" "1"}}
+								&lt;li&gt;
+									&lt;a href="javascript:;" onclick="goImageViewer('{{this.levelId}}');"&gt;문화재청 김성일 종가 전적본&lt;/a&gt;
+								&lt;/li&gt;
+							{{/if}}
+						&lt;/ul&gt;
+					&lt;/div&gt;
+				{{else}}
+					{{#if existImage "==" "1"}}
+						&lt;div class="bt_st"&gt;
+							&lt;a href="javascript:;" class="bt_txt bt_st02 ml10"&gt;원문이미지&lt;/a&gt;
+							&lt;ul class="m110"&gt;
+								&lt;li&gt;
+									&lt;a href="javascript:;" onclick="goImageViewer('{{this.levelId}}');"&gt;문화재청 김성일 종가 전적본&lt;/a&gt;
+								&lt;/li&gt;
+							&lt;/ul&gt;
+						&lt;/div&gt;
+					{{/if}}
+				{{/if}}
+			&lt;/span&gt;
+		&lt;/li&gt;
+	{{/each}}
+</SCRIPT>
+            
+            <SCRIPT type="text/javascript">
+	var AppRouter = Backbone.Router.extend({
+		// # 해쉬로 표현될 Fragment를 등록한다
+		routes: {
+			"": "index", // Backbone will try match the route above first
+			
+			"book-show/:itemId/:id": "bookShow",
+			"series-show/:bookId/:levelId": "seriesShow",
+			"years-show/:bookId/:levelId": "yearsShow",
+			"month-show/:bookId/:levelId": "monthShow",
+			"detail/:levelId": "showDetail",
+			"articleList/:levelId" : "showMonthArticleList",
+			
+			"kingYear/:itemId/:types/:kingOrder": "showkingYear",
+			"kingYear/:itemId/:types/:kingOrder/:year": "showkingMonth",
+			"kingYear/:itemId/:types/:kingOrder/:year/:month": "showkingArticleList",
+			"detail-kingYear/:levelId/:kingOrder/:year/:month": "showDetail",
+			//"kingYear/:itemId/:types/:kingOrder/:year/:month/all": "showkingMonthList"
+		},
+		initialize: function() {
+			
+				if (!documentView) {
+					documentView = new DocumentView();
+				}
+				
+				if (!kingYearView) {
+					kingYearView = new KingYearView();
+					kingYearView.render();
+				}
+				
+				if (!kingListView) {
+					kingListView = new KingListView();
+				}
+				
+				if (!articleView) {
+					articleView = new ArticleView();
+				}
+				
+				if (!articleListView) {
+					articleListView = new ArticleListView();
+				}
+				
+				if (levelModel == null) {
+					showView("documentView");
+					//$(".book-view").css({display: 'none'});
+					documentView.render();
+				}
+			
+		},
+		index: function() {
+			
+				
+				
+					if (levelModel != null &amp;&amp; levelModel.get("isLeaf") == '1') {
+						$(".select-menu").show();
+						$(".peruse").hide();
+						articleView.render(levelModel.get("levelId"));
+					} else if (levelModel != null) {
+						var currentUrl = document.URL;
+						var url = currentUrl.substring(0, currentUrl.indexOf("?") + 1) + "itemId=" + levelModel.get("itemId") + "&amp;bookId=" + levelModel.get("bookId") + "&amp;types=" + levelModel.get("types") + "#";
+						switch (levelModel.get("level")) {
+							case '1':
+								url += "book-show/" + levelModel.get("itemId") + "/" + levelModel.get("bookId");
+								break;
+							case '2':
+								url += "series-show/" + levelModel.get("bookId") + "/" + levelModel.get("levelId");
+								break;
+							case '3':
+								url += "years-show/" + levelModel.get("bookId") + "/" + levelModel.get("levelId");
+								break;
+							case '4':
+								//url += "month-show/"+levelModel.get("bookId")+ "/" + levelModel.get("levelId");
+								//url += "month-show/"+ levelModel.get("levelId");
+								url += "articleList/"+ levelModel.get("levelId");
+								break;
+						}
+						location.href = encodeURI(url);
+					} else {
+						//$(".book-view").css({display:'none'});
+						if (paramBookId != "") {
+							var viewid = 'view_book_' + paramBookId;
+							documentView.render();
+							documentView.views[viewid].serverDataSet(paramBookId);
+							showView("documentView");
+							/* var url = "/KOREA/rest/bookInfo/" + currentItemId + "/" + currentTypes + "/" + encodeURI(paramBookId) + ".do";
+							url = encodeURI(url);
+							$.get(url, function(data) {
+								//if(data[paramBookId].startLevelVO.isText == 1) {
+								//	app_router.navigate("detail/"+data[paramBookId].startLevelVO.levelId, { trigger: true });
+								//} else {
+									var viewid = 'view_book_' + paramBookId;
+									documentView.render();
+									documentView.views[viewid].serverDataSet(paramBookId);
+									showView("documentView");
+								//}
+							}); */
+						}
+					}
+				
+			
+		},
+		bookShow: function(itemId, id) {
+			id = decodeURI(id);
+			documentView.toggle();
+			showView("documentView");
+			//kingYearView.$el.hide();
+			//documentView.$el.show();
+			selectBookId = id;
+			var viewid = 'view_book_' + id;
+			if (jQuery.isEmptyObject(documentView.views)) {
+				documentView.render();
+			}
+			documentView.views[viewid].updateView(id);
+		},
+		seriesShow: function(bookId, id) {
+			if (bookId != selectBookId) bookId = selectBookId;
+			//kingYearView.$el.hide();
+			//documentView.$el.show();
+			showView("documentView");
+			selectBookId = bookId;
+			selectSeriesId = id;
+			var bookViewId = 'view_book_' + selectBookId;
+			var that = this;
+			currentLevelId = id;
+			if (jQuery.isEmptyObject(documentView.views)) {
+				documentView.render();
+			}
+			documentView.views[bookViewId].updateView(selectBookId, function() {
+				var viewSeriesId = 'view_series_' + id;
+				documentView.views[bookViewId].views[viewSeriesId].updateView(id);
+				// expand/collapse
+				setToggleHandlerByType("series", id);
+			});
+		},
+		yearsShow: function(bookId, id) {
+			//kingYearView.$el.hide();
+			//documentView.$el.show();
+			if (bookId != selectBookId) bookId = selectBookId;
+			showView("documentView");
+			selectBookId = bookId;
+			selectSeriesId = id;
+			currentLevelId = id;
+			var bookViewId = 'view_book_' + selectBookId;
+			if (jQuery.isEmptyObject(documentView.views)) {
+				documentView.render();
+			}
+			documentView.views[bookViewId].updateView(selectBookId, function() {
+				var ids = id.split("_");
+				selectSeriesId = ids[0] + "_" + ids[1] + "_" + ids[2];
+				var viewSeriesId = 'view_series_' + selectSeriesId;
+				documentView.views[bookViewId].views[viewSeriesId].updateView(selectSeriesId, function() {
+					documentView.views[bookViewId].views[viewSeriesId].views[id].updateView(id);
+					
+					// expand/collapse
+					setToggleHandlerByType("year", id);
+				});
+			});
+		},
+		monthShow: function(bookId, id) {
+			if (bookId != selectBookId) bookId = selectBookId;
+			//kingYearView.$el.hide();
+			//documentView.$el.show();
+			showView("documentView");
+			selectBookId = bookId;
+			var bookViewId = 'view_book_' + selectBookId;
+			currentLevelId = id;
+			if (jQuery.isEmptyObject(documentView.views)) {
+				documentView.render();
+			}
+			documentView.views[bookViewId].updateView(selectBookId, function() {
+				var ids = id.split("_");
+				selectSeriesId = ids[0] + "_" + ids[1] + "_" + ids[2];
+				var viewSeriesId = 'view_series_' + selectSeriesId;
+				documentView.views[bookViewId].views[viewSeriesId].updateView(selectSeriesId, function() {
+					if (ids.length &gt; 2) {
+						selectYearId = ids[0] + "_" + ids[1] + "_" + ids[2] + "_" + ids[3];
+						//console.log(documentView.views[bookViewId]);
+						//console.log(documentView.views[bookViewId].views[viewSeriesId]);
+						//console.log(documentView.views[bookViewId].views[viewSeriesId].views[selectYearId]);
+						documentView.views[bookViewId].views[viewSeriesId].views[selectYearId].updateView(selectYearId, function() {
+							var currentView = documentView.views[bookViewId].views[viewSeriesId].views[selectYearId];
+							currentView.views[id].updateView(id);
+						});
+					}
+				});
+			});
+		},
+		showDetail: function(levelId, kingOrder, year, month) {
+			//$(".book-view").css({display: ''});
+			if (!articleView) {
+				articleView = new ArticleView();
+			}
+			showView("articleView");
+			articleView.render(levelId, kingOrder, year, month);
+			currentLevelId = levelId;
+			
+			/**
+				2019-02-14 수정
+				왕대별보기 View가 null이면 다시 rendering 한다.
+			*/
+			if (!kingYearView) {
+				kingYearView = new KingYearView();
+				kingYearView.render();
+			}
+		},
+		//showkingYear: function(kingOrder) { router에서 정의한 파라미터 갯수가 다름 2015-03-23 차상인 변경
+		showkingYear: function(itemId, types, kingOrder) {
+			showView("kingListView");
+			if (!kingYearView) {
+				kingYearView = new KingYearView();
+			}
+			kingYearView.render(kingOrder, function() {
+				if (!kingListView) {
+					kingListView = new KingListView();
+				}
+				//kingListView.updateView(kingOrder); //  2015-03-23 차상인 변경
+				kingListView.updateView(itemId, types, kingOrder);
+				//app_router.navigate("kingYear/"+kingOrder+"/"+kingYear+"/"+levelId, { trigger: true });
+			});
+		},
+		showkingMonth : function(itemId, types, kingOrder, year) {
+			showView("kingListView");
+			if (!kingYearView) {
+				kingYearView = new KingYearView();
+			}
+			kingYearView.render(kingOrder, function(kingYear) {
+				var monthList = kingYear.monthList;
+				var html = "";
+				html += "&lt;ul&gt;";
+				for (var i = 0; i &lt; monthList.length; i++) {
+					html += "&lt;li id=\"king_month_" + year + "_" + monthList[i].month + "\"&gt;&lt;a href=\"#kingYear/" + itemId + "/" + types + "/" + kingOrder + "/" + monthList[i].year + "/" + monthList[i].month + "\"&gt;" + monthList[i].month + "&lt;/a&gt;&lt;/li&gt;";
+				}
+				html += "&lt;/ul&gt;";
+				if ($("#king_year_"+year).find("ul").length == 0) {
+					$(".by-king_d2").find("ul").removeClass("on");
+					$(".by-king_d2").find("ul &gt; li").removeClass("on");
+					$("#king_year_"+year).parent().addClass("on");
+					$("#king_year_"+year).addClass("on");
+					$("#king_year_"+year).append(html);
+					//$("#king_year_"+year).css({display:'block'});
+				}
+				if (!kingListView) {
+					kingListView = new KingListView();
+				}
+				kingListView.updateView(itemId, types, kingOrder, year);
+				//app_router.navigate("kingYear/"+kingOrder+"/"+kingYear+"/"+levelId, { trigger: true });
+			});
+		},
+		showkingArticleList: function(itemId, types, kingOrder, year, month) {
+			currentLevelId = month;
+			if (!kingYearView) {
+				kingYearView = new KingYearView();
+			}
+			kingYearView.render(kingOrder, function(kingYear) {
+				showView("kingListView");
+				if (!kingListView) {
+					kingListView = new KingListView();
+				}
+				kingListView.render(itemId, types, kingOrder, year, month);
+			});
+		},
+		showMonthArticleList: function(levelId) {
+			currentLevelId = levelId;
+			showView("articleListView");
+			if (!articleListView) {
+				articleListView = new ArticleListView();
+			}
+			articleListView.render(levelId);
+		}
+	});
+	
+	function showView(type) {
+		$(".select-menu").show();
+		$(".peruse").hide();
+		currentView = type;
+		switch(type) {
+			case "documentView":
+				$(".bt01").show();
+				if (documentView) {
+					documentView.$el.show();
+				}
+				if (kingListView) {
+					kingListView.$el.hide();
+				}
+				if (articleView) {
+					articleView.$el.html("");
+					articleView.$el.hide();
+				}
+				if (articleListView) {
+					articleListView.$el.hide();
+				}
+				break;
+			case "kingListView":
+				$(".bt01").show();
+				if (documentView) {
+					documentView.$el.hide();
+				}
+				if (kingListView) {
+					kingListView.$el.show();
+				}
+				if (articleView) {
+					articleView.$el.html("");
+					articleView.$el.hide();
+				}
+				if (articleListView) {
+					articleListView.$el.hide();
+				}
+				break;
+			case "articleView":
+				$(".bt01").hide();
+				if (documentView) {
+					documentView.$el.hide();
+				}
+				if (kingListView) {
+					kingListView.$el.hide();
+				}
+				if (articleView) {
+					articleView.$el.show();
+				}
+				if (articleListView) {
+					articleListView.$el.hide();
+				}
+				break;
+			case "articleListView":
+				$(".bt01").show();
+				if (documentView) {
+					documentView.$el.hide();
+				}
+				if (kingListView) {
+					kingListView.$el.hide();
+				}
+				if (articleView) {
+					articleView.$el.hide();
+				}
+				if (articleListView) {
+					articleListView.$el.show();
+				}
+				break;
+		}
+	}
+	
+	var BOOK_VIEW_TITLE = "권별 보기";
+	var KING_VIEW_TITLE = "왕대별 보기";
+	
+	var currentView = "";
+	
+	function changeLocation(model) {
+		var url = document.URL;
+		
+		var otherUrl = "";
+		var currentType = "";
+		
+		var urlVarBookId = getUrlVars()["bookId"];
+		if (urlVarBookId) {
+			urlVarBookId = decodeURI(urlVarBookId);
+			if (urlVarBookId != selectBookId) {
+				url = decodeURI(url);
+				url = url.replace(urlVarBookId, selectBookId);
+			}
+		}
+		
+		if (url.indexOf('types=o') &gt; -1 || url.indexOf('/o/') &gt; -1) {
+			if (url.indexOf('types=o') &gt; -1) {
+				otherUrl = url.replace('types=o', 'types=r');
+				if (url.indexOf('/o/') &gt; -1) {
+					otherUrl = otherUrl.replace('/o/', '/r/');
+				}
+			} else if (url.indexOf('/o/') &gt; -1) {
+				otherUrl = url.replace('/o/', '/r/');
+			}
+			currentType = "o";
+		} else if (url.indexOf('types=r') &gt; -1 || url.indexOf('/r/') &gt; -1) {
+			if (url.indexOf('types=r') &gt; -1) {
+				otherUrl = url.replace('types=r', 'types=o');
+				if (url.indexOf('/r/') &gt; -1) {
+					otherUrl = otherUrl.replace('/r/', '/o/');
+				}
+			} else if (url.indexOf('/r/') &gt; -1) {
+				otherUrl = url.replace('/r/', '/o/');
+			}
+			currentType = "r";
+		} else {
+			otherUrl = url;
+		}
+		
+		// 수정 : levelId 값 변경.
+		var paramItemId = getUrlVars()["itemId"];	// 아이템ID
+		if (paramItemId) {
+			// 수정 : 왕대별 보기 상세 화면에서는 해쉬의 마지막이 레벨ID가 아님.
+			var originLevelId = "";
+			if (model.get("king")) {
+				if (model.get("itemLevel")) {
+					originLevelId = model.get("itemLevel").levelId;
+				}
+			} else {
+				var urlSplit = otherUrl.split("/");
+				originLevelId = urlSplit[urlSplit.length - 1];
+			}
+			/* var urlSplit = otherUrl.split("/");
+			var originLevelId = urlSplit[urlSplit.length - 1]; */
+			if (originLevelId.startsWith(paramItemId)) {
+				var levelIds = originLevelId.split("_");
+				var originLevel1Id = levelIds[0] + "_" + levelIds[1];	// 현재 레벨1ID
+				var otherLevel1Id = "";									// 다른 언어 레벨1ID
+				if (levelIds[1].indexOf("r") &gt; -1) {
+					otherLevel1Id = levelIds[0] + "_" + levelIds[1].replace("r", '');	// 원문 레벨1ID
+					currentType = "r";
+				} else {
+					otherLevel1Id = levelIds[0] + "_" + levelIds[1] + "r";				// 국문 레벨1ID
+					currentType = "o";
+				}
+				otherUrl = otherUrl.split(originLevel1Id).join(otherLevel1Id);
+				//console.log("paramItemId : originLevel1Id=" + originLevel1Id + ";otherLevel1Id=" + otherLevel1Id);
+			}
+		} else {
+			var paramLevelId = getUrlVars()["levelId"];	// 레벨ID
+			if (paramLevelId) {
+				var originLevelId = paramLevelId;
+				var levelIds = originLevelId.split("_");
+				var originLevel1Id = levelIds[0] + "_" + levelIds[1];	// 현재 레벨1ID
+				var otherLevel1Id = "";									// 다른 언어 레벨1ID
+				if (levelIds[1].indexOf("r") &gt; -1) {
+					otherLevel1Id = levelIds[0] + "_" + levelIds[1].replace("r", '');	// 원문 레벨1ID
+					currentType = "r";
+				} else {
+					otherLevel1Id = levelIds[0] + "_" + levelIds[1] + "r";				// 국문 레벨1ID
+					currentType = "o";
+				}
+				otherUrl = otherUrl.split(originLevel1Id).join(otherLevel1Id);
+				//console.log("paramLevelId : originLevel1Id=" + originLevel1Id + ";otherLevel1Id=" + otherLevel1Id);
+			}
+		}
+		/* //레벨ID여부 확인
+    	var paramItemId = getUrlVars()["itemId"];
+    	if(paramItemId){
+        	var urlSplit = otherUrl.split("/");
+        	var originLevelId = urlSplit[urlSplit.length-1];
+    		var otherLevelId = "";
+        	if(originLevelId.startsWith(paramItemId)){
+        		var levelIds = originLevelId.split("_");
+        		
+        		if(levelIds[1].indexOf('r') &gt; -1){
+        			//국문ID
+        			levelIds[1] = levelIds[1].replace('r', '');
+        			currentType = "r";
+        		}else{
+        			//번역ID
+        			levelIds[1] = levelIds[1]+'r';
+        			currentType = "o";
+        		}
+        		for(var i=0; i &lt; levelIds.length-1;i++){
+        			otherLevelId += levelIds[i] + "_";
+        		}
+        		otherLevelId += levelIds[levelIds.length-1];
+        		
+        		otherUrl = otherUrl.replace(originLevelId, otherLevelId);
+        	}
+    	}
+    	
+    	var paramLevelId = getUrlVars()["levelId"];
+    	if(paramLevelId){
+    		var originLevelId = paramLevelId;
+    		var otherLevelId = "";
+    		var levelIds = paramLevelId.split("_");
+    		if(levelIds[1].indexOf('r') &gt; -1){
+    			//국문ID
+    			levelIds[1] = levelIds[1].replace('r', '');
+    			currentType = "r";
+    		}else{
+    			//번역ID
+    			levelIds[1] = levelIds[1]+'r';
+    			currentType = "o";
+    		}
+    		for(var i=0; i &lt; levelIds.length-1;i++){
+    			otherLevelId += levelIds[i] + "_";
+    		}
+    		otherLevelId += levelIds[levelIds.length-1];
+    		
+    		otherUrl = url.replace(originLevelId, otherLevelId);
+    	} */
+		
+    	var $origin;
+    	var $other;
+    	if (currentType == "o") {
+    		$origin = $("&lt;a href='" + url + "' class='on' title='원문' alt='원문'&gt;원문&lt;/a&gt;");
+    		$other = $("&lt;a href='" + otherUrl + "' title='국문' alt='국문'&gt;국문&lt;/a&gt;");
+    	} else {
+    		$origin = $("&lt;a href='" + otherUrl + "' title='원문' alt='원문'&gt;원문&lt;/a&gt;");
+    		$other = $("&lt;a href='" + url + "' class='on' title='국문' alt='국문'&gt;국문&lt;/a&gt;");
+    	}
+    	
+    	// 최종 Url
+		var $selector = $("#langType");
+    	$selector.empty();
+    	$selector.append($origin);
+    	$selector.append($other);
+    	
+    	// 수정 : 상단 네비게이션에서 아이템명 클릭 시 원문, 국문 상관없이 원문으로 이동됨.
+		var displayItemName = "고려사절요";
+		if (currentTypes == "o") {
+			displayItemName = "高麗史節要";
+		}
+		var html = "&lt;a href=\"/KOREA/item/level.do?itemId=" + currentItemId + "&amp;types=" + currentTypes + "\"&gt;" + displayItemName + "&lt;/a&gt; &amp;gt; ";
+    	//var html = "&lt;a href=\"/KOREA/item/level.do?itemId="+currentItemId+"\"&gt;고려사절요&lt;/a&gt; &amp;gt; ";
+    	
+    	var king = model.get("king");
+    	if (typeof king != 'undefined') {
+    		html += KING_VIEW_TITLE;
+    		
+			html += " &amp;gt; &lt;a href=\"#kingYear/" + currentItemId + "/" + currentTypes + "/" + king.id + "\"&gt;" + king.kingName + "(" + king.startDate + " - " + king.endDate + ")" + "&lt;/a&gt;";
+			
+			var kingYear = model.get("kingYearYear");
+			html += " &amp;gt; &lt;a href=\"#kingYear/" + currentItemId + "/" + currentTypes + "/" + king.id + "/" + kingYear.id + "\"&gt;" + kingYear.year + "&lt;/a&gt;";
+			
+			var month = model.get("kingYearMonth");
+			html += " &amp;gt; &lt;a href=\"#kingYear/" + currentItemId + "/" + currentTypes + "/" + king.id + "/" + kingYear.id + "/" + month.id + "\"&gt;" + month.month + "&lt;/a&gt;";
+			
+			var kingItemLevel = model.get("itemLevel");
+			if (kingItemLevel &amp;&amp; kingItemLevel.isText == '1') {
+				html += " &amp;gt; &lt;a href=\"#detail-kingYear/" + kingItemLevel.levelId + "/" + king.id + "/" + kingYear.id + "/" + month.id + "\"&gt;" + kingItemLevel.mainTitle + "&lt;/a&gt;";
+			}
+		} else {
+    		html += BOOK_VIEW_TITLE;
+    		
+    		var book = model.get("book");
+    		if (typeof book == 'undefined') {
+    			book = model.get("name");
+    		}
+    		if (typeof book == 'undefined' || book == "") {
+    			book = "卷2";
+    		}
+    		//html += " &amp;gt; &lt;a href=\"#book-show/" + currentItemId + "/" + book + "\"&gt;" + book + "&lt;/a&gt;";
+    		
+    		var viewType = ["book-show", "series-show", "years-show", "month-show", "detail", "detail", "detail"];
+    		//var viewType = ["series-show", "years-show", "month-show", "detail", "detail", "detail", "detail"];
+    		var parentList = model.get("parentList");
+    		if (typeof parentList != 'undefined') {
+    			var parentlength = parentList.length;
+    			for (var i = 0; i &lt; parentlength; i++) {
+    				var itemLevel = parentList[i];
+    				if (model.attributes.itemLevel &amp;&amp; model.attributes.itemLevel.isText == '1'
+							&amp;&amp; model.attributes.itemLevel.levelId == itemLevel.levelId) {
+						html += " &amp;gt; &lt;a href=\"#detail/" + itemLevel.levelId + "\"&gt;" + itemLevel.mainTitle + "&lt;/a&gt;";
+					} else {
+						if (i == 0) {
+							html += " &amp;gt; &lt;a href=\"#book-show/" + currentItemId + "/" + book + "\"&gt;" + book + "&lt;/a&gt;";
+						} else {
+							html += " &amp;gt; &lt;a href=\"#" + viewType[i] + "/" + book + "/" + itemLevel.levelId + "\"&gt;" + itemLevel.mainTitle + "&lt;/a&gt;";	
+						}
+					}
+    				/* var isLeaf = 1;
+    				if(i+1 &lt; parentlength) {
+    					html += " &amp;gt; &lt;a href=\"#"+viewType[i]+"/"+book+"/"+itemLevel.levelId+"\"&gt;"+itemLevel.mainTitle+"&lt;/a&gt;";
+    				} else {
+    					html += " &amp;gt; &lt;a href=\"#detail/"+itemLevel.levelId+"\"&gt;"+itemLevel.mainTitle+"&lt;/a&gt;";
+    				} */
+    			}	
+    		} else {
+    			html += " &amp;gt; &lt;a href=\"#book-show/" + currentItemId + "/" + book + "\"&gt;" + book + "&lt;/a&gt;";
+    		}
+    	}
+    	
+    	$(".location").html(html);
+    	
+    	if (model.attributes.itemLevel &amp;&amp; model.attributes.itemLevel.isText == '1') {
+    		$(".fsize").show();
+    		$(".bt01").hide();
+    	} else {
+    		$(".fsize").hide();
+    		$(".bt01").show();
+    	}
+    }
+    
+	// 토글 펑션
+    function setToggleHandlerByType(type,id) {
+    	var selector;
+        
+        if ( type == "series" ) {
+            selector = "#view_series_" + id.replace("$", "\\$");
+        } else {
+            selector = "#" + id.replace("$","\\$");
+        }
+       
+        if ( $(selector).length &gt; 0 &amp;&amp; $(selector).data("eventReady") != "ok" ) {
+        	$(selector).data("eventReady", "ok");
+        	if ( type == "series" ) {
+                $(selector).find("&gt;dt").on("click", function(e) {
+                    $(this).siblings("dd").toggle();
+                });
+            } else if ( type == "year" ) {
+                $(selector).find("&gt;a").on("click", function(e) {
+                    $(this).siblings("ul").toggle();
+                });
+            }
+        }
+    }
+
+  	//다운로드
+    function downloadItemLevel() {
+  		var url = document.URL;
+  		var paramItemId = getUrlVars()["itemId"];
+  		var paramLevelId = getUrlVars()["level"];
+  		var paramBookId = "";
+  		var kingYear = "";
+  		var dateOccured = "";
+  		
+  		if(paramLevelId || paramItemId){
+      		if(paramLevelId){
+      			$("#searchCommand").find("input[name='levelId']").val(paramLevelId);
+      		}else if(paramItemId){
+      			$("#searchCommand").find("input[name='itemId']").val(paramItemId);
+      			if(url.indexOf("?") &gt; -1){
+      				var queryString = url.substring(url.indexOf("?")+1);
+      				if(queryString.indexOf("/") &gt; -1){
+          				if(queryString.indexOf("kingYear") &gt; -1){
+          					var kingYearQueryString = queryString.substring(queryString.indexOf("#"));
+          					var kingYears = kingYearQueryString.split("/");
+          					kingYear = kingYears[3];
+          					dateOccured = kingYears[4];
+          					if(kingYears.length &gt; 5){
+          						dateOccured +="-"+kingYears[5];	
+          					}else{
+          						//".date ul.on.children(li.on).children(li.on).slice(0,1)"
+          						if($(".date").find("ul.on").length &gt; 0){
+          							$yearLi = $(".date").find("ul.on &gt; li.on").first();
+          							$monLi = $yearLi.find("li.on").eq(0);
+          							if($monLi){
+          								dateOccured += "-" + $monLi.attr("id").replace("kingdate_", "");
+          							}
+          						}
+          					}
+          					$("#searchCommand").find("input[name='kingYear']").val(kingYear);
+          					$("#searchCommand").find("input[name='dateOccured']").val(dateOccured);
+          				}else if(queryString.indexOf("book-show") &gt; -1){
+          					paramBookId = queryString.substring(queryString.lastIndexOf("/")+1);
+          					$("#searchCommand").find("input[name='bookId']").val(paramBookId);
+          				}else{
+          					paramLevelId = queryString.substring(queryString.lastIndexOf("/")+1);
+          					$("#searchCommand").find("input[name='levelId']").val(paramLevelId);
+          				}
+      				}else{
+      					paramBookId = getUrlVars()["bookId"];
+      					if(paramBookId){
+      						$("#searchCommand").find("input[name='bookId']").val(paramBookId);
+      					}
+      				}
+      			}
+      		}
+
+        	$("#searchCommand").attr('action', 'downloadItemLevel.do').submit();
+        	$("#searchCommand").attr('action', 'level.do');//원래상태로
+  		}
+    }
+    
+    var levelListModel = new LevelListModel();
+    
+	var bookListModel = new BookListModel();
+	
+	var kingYearListModel = new KingYearListModel();
+	
+	var kingYearView = null; // 왕대/년/월 검색 View
+	var kingListView = null; // 왕별 검색 결과 View
+	var documentView = null; // 권별 검색 결과 View
+	var articleView = null; // 상세 조회 View
+	var articleListView = null; // 달 전체 조회 View
+	
+	var paramBookId = "卷2"; // 권별 일람시 사용되는 권별 ID
+	var selectBookId = "卷2"; // 권별 일람시 사용되는 권별 ID
+	var selectSeriesId = "";
+	var selectYearId = "";
+	var currentItemId = "kj";
+	var currentLevelId = "";
+	var currentMainTitle = "고려사절요";
+	var currentTypes = "o";
+	
+	
+		bookListModel.push(new BookModel({id : "進高麗史節要箋", itemId : "kj", name : "進高麗史節要箋", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "高麗史節要凡例", itemId : "kj", name : "高麗史節要凡例", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "修史官", itemId : "kj", name : "修史官", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "高麗史節要目錄", itemId : "kj", name : "高麗史節要目錄", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷1", itemId : "kj", name : "卷1 [太祖 元年~太祖 26年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷2", itemId : "kj", name : "卷2 [惠宗 元年~穆宗 12年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷3", itemId : "kj", name : "卷3 [顯宗 元年~顯宗 22年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷4", itemId : "kj", name : "卷4 [德宗 元年~文宗 10年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷5", itemId : "kj", name : "卷5 [文宗 11年~順宗 37年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷6", itemId : "kj", name : "卷6 [宣宗 1年~肅宗 7年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷7", itemId : "kj", name : "卷7 [肅宗 8年~睿宗 7年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷8", itemId : "kj", name : "卷8 [睿宗 8年~睿宗 17年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷9", itemId : "kj", name : "卷9 [仁宗 1年~仁宗 9年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷10", itemId : "kj", name : "卷10 [仁宗 10年~仁宗 24年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷11", itemId : "kj", name : "卷11 [毅宗 1年~毅宗 24年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷12", itemId : "kj", name : "卷12 [明宗 1年~明宗 13年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷13", itemId : "kj", name : "卷13 [明宗 14年~明宗 27年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷14", itemId : "kj", name : "卷14 [神宗 1年~高宗 3年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷15", itemId : "kj", name : "卷15 [高宗 4年~高宗 16年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷16", itemId : "kj", name : "卷16 [高宗 17年~高宗 37年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷17", itemId : "kj", name : "卷17 [高宗 38年~高宗 46年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷18", itemId : "kj", name : "卷18 [元宗 1年~元宗 11年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷19", itemId : "kj", name : "卷19 [元宗 12年~忠烈王 3年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷20", itemId : "kj", name : "卷20 [忠烈王 3年~忠烈王 11年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷21", itemId : "kj", name : "卷21 [忠烈王 12年~忠烈王 23年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷22", itemId : "kj", name : "卷22 [忠烈王 24年~忠烈王 30年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷23", itemId : "kj", name : "卷23 [忠烈王 31年~忠宣王 5年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷24", itemId : "kj", name : "卷24 [忠肅王 1年~忠肅王 17年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷25", itemId : "kj", name : "卷25 [忠惠王 1年~忠穆王 4年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷26", itemId : "kj", name : "卷26 [忠定王 1年~恭愍王 6年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷27", itemId : "kj", name : "卷27 [恭愍王 7年~恭愍王 12年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷28", itemId : "kj", name : "卷28 [恭愍王 13年~恭愍王 18年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷29", itemId : "kj", name : "卷29 [恭愍王 19年~恭愍王 23年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷30", itemId : "kj", name : "卷30 [辛禑 1年~辛禑 4年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷31", itemId : "kj", name : "卷31 [辛禑 5年~辛禑 8年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷32", itemId : "kj", name : "卷32 [辛禑 9年~辛禑 13年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷33", itemId : "kj", name : "卷33 [辛禑 14年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷34", itemId : "kj", name : "卷34 [昌王 1年~恭讓王 2年]", otherName:""}));
+	
+		bookListModel.push(new BookModel({id : "卷35", itemId : "kj", name : "卷35 [恭讓王 3年~恭讓王 4年]", otherName:""}));
+	
+	
+	
+		kingYearListModel.push(new KingYearModel({id : "1", name : "태조", hint : "태조(太祖)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "2", name : "혜종", hint : "혜종(惠宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "3", name : "정종", hint : "정종(定宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "4", name : "광종", hint : "광종(光宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "5", name : "경종", hint : "경종(景宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "6", name : "성종", hint : "성종(成宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "7", name : "목종", hint : "목종(穆宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "8", name : "현종", hint : "현종(顯宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "9", name : "덕종", hint : "덕종(德宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "10", name : "정종", hint : "정종(靖宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "11", name : "문종", hint : "문종(文宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "12", name : "순종", hint : "순종(順宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "13", name : "선종", hint : "선종(宣宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "14", name : "헌종", hint : "헌종(獻宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "15", name : "숙종", hint : "숙종(肅宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "16", name : "예종", hint : "예종(睿宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "17", name : "인종", hint : "인종(仁宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "18", name : "의종", hint : "의종(毅宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "19", name : "명종", hint : "명종(明宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "20", name : "신종", hint : "신종(神宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "21", name : "희종", hint : "희종(熙宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "22", name : "강종", hint : "강종(康宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "23", name : "고종", hint : "고종(高宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "24", name : "원종", hint : "원종(元宗)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "25", name : "충렬왕", hint : "충렬왕(忠烈王)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "26", name : "충선왕", hint : "충선왕(忠宣王)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "27", name : "충숙왕", hint : "충숙왕(忠肅王)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "28", name : "충혜왕", hint : "충혜왕(忠惠王)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "29", name : "충숙왕(후)", hint : "충숙왕(후)(忠肅王(後))", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "30", name : "충혜왕(후)", hint : "충혜왕(후)(忠惠王(後))", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "31", name : "충목왕", hint : "충목왕(忠穆王)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "32", name : "충정왕", hint : "충정왕(忠定王)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "33", name : "공민왕", hint : "공민왕(恭愍王)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "34", name : "우왕", hint : "우왕(禑王)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "35", name : "창왕", hint : "창왕(昌王)", itemId:"kj", types:"o"}));
+	
+		kingYearListModel.push(new KingYearModel({id : "36", name : "공양왕", hint : "공양왕(恭讓王)", itemId:"kj", types:"o"}));
+	
+	
+	
+		levelListModel.push(new LevelModel({item : {levelId : "kj_002_0010", mainTitle : '惠宗義恭大王', seriesTitle : '', period : '', level : "2", isLeaf : "0"}, bookInfo : selectBookId, id : "kj_002_0010"}));
+	
+		levelListModel.push(new LevelModel({item : {levelId : "kj_002_0020", mainTitle : '定宗文明大王', seriesTitle : '', period : '', level : "2", isLeaf : "0"}, bookInfo : selectBookId, id : "kj_002_0020"}));
+	
+		levelListModel.push(new LevelModel({item : {levelId : "kj_002_0030", mainTitle : '光宗大成大王', seriesTitle : '', period : '', level : "2", isLeaf : "0"}, bookInfo : selectBookId, id : "kj_002_0030"}));
+	
+		levelListModel.push(new LevelModel({item : {levelId : "kj_002_0040", mainTitle : '景宗獻和大王', seriesTitle : '', period : '', level : "2", isLeaf : "0"}, bookInfo : selectBookId, id : "kj_002_0040"}));
+	
+		levelListModel.push(new LevelModel({item : {levelId : "kj_002_0050", mainTitle : '成宗文懿大王', seriesTitle : '', period : '', level : "2", isLeaf : "0"}, bookInfo : selectBookId, id : "kj_002_0050"}));
+	
+		levelListModel.push(new LevelModel({item : {levelId : "kj_002_0060", mainTitle : '穆宗宣讓大王', seriesTitle : '', period : '', level : "2", isLeaf : "0"}, bookInfo : selectBookId, id : "kj_002_0060"}));
+	
+	
+	var levelModel = null;
+	
+	
+	
+	spinner = new Spinner(opts);
+	
+ 	var app_router = new AppRouter();
+    
+ 	// Start Backbone history a necessary step for bookmarkable URL's
+    Backbone.history.start();
+</SCRIPT>
+            		
+            <!-- footer -->
+            		
+		
+            <!--footer-->
+                
+            <DIV id="footer">
+                 
+        
+                <!--wrap-->
+                        
+                <DIV class="wrap noLine">
+                                
+                    <DIV class="fm">
+                        <A href="http://www.history.go.kr/contents/contentsPage.do?groupId=000000000571&amp;menuId=000000000572&amp;pageId=000000000211&amp;itemId=&amp;action=&amp;itemIndex=&amp;condition=&amp;keyword=&amp;category=&amp;totalCount=0&amp;page=1&amp;rowPerPage=10&amp;searchKeyword=" target="_blank" class="b">개인정보처리방침</A>
+                        <EM>|</EM>
+                        <A href="http://db.history.go.kr/errorReport/errorReportList.do" target="_blank">오류신고 확인</A>
+                    </DIV>
+                                
+                    <DIV class="info">13809 경기도 과천시 교육원로 86   Copyright © National Institute of Korean History All Rights Reserved. </DIV>
+                                
+                    <DIV class="re-site">
+                                        
+                        <SELECT class="ft_slt" id="ft_slt">
+                                                
+                            <OPTION value="subject">관련사이트 바로가기</OPTION>
+                                                
+                            <OPTION value="http://www.history.go.kr">국사편찬위원회</OPTION>
+                                                
+                            <OPTION value="http://archive.history.go.kr">국사편찬위원회 전자사료관</OPTION>
+                                                
+                            <OPTION value="http://www.koreanhistory.or.kr">한국역사정보통합시스템</OPTION>
+                                                
+                            <OPTION value="http://contents.history.go.kr">우리역사넷</OPTION>
+                                                
+                            <OPTION value="http://contents.koreanhistory.or.kr">한국사콘텐츠</OPTION>
+                                                
+                            <OPTION value="http://thesaurus.history.go.kr">한국역사용어시소러스</OPTION>
+                                        	
+                        </SELECT>
+                                    
+                    </DIV>
+                            
+                </DIV>
+                        
+                <!--//wrap-->
+                 
+    
+            </DIV>
+                
+            <!--//footer-->
+             
+	
+        </DIV>
+        	
+        <FORM id="searchCommand" name="searchCommand" method="get" action="/KOREA/item/level.do">
+            		
+            <INPUT type="hidden" name="sort" id="sort" value=""/>
+             
+		
+            <INPUT type="hidden" name="dir" id="dir" value=""/>
+            		
+            <INPUT type="hidden" name="start" id="start" value=""/>
+             
+		
+            <INPUT type="hidden" name="limit" id="limit" value=""/>
+             
+		
+            <INPUT type="hidden" name="page" id="page" value="1"/>
+             
+		
+            <INPUT type="hidden" name="pre_page" id="pre_page" value="1"/>
+            		
+            <INPUT type="hidden" name="prevPage" id="prevPage" value="1"/>
+             
+		
+            <INPUT type="hidden" name="prevLimit" id="prevLimit" value=""/>
+            		
+            <INPUT type="hidden" name="itemId" id="itemId" value="kj"/>
+             
+		
+            <INPUT type="hidden" name="types" id="types" value="o"/>
+            		
+            <INPUT type="hidden" name="bookId" id="bookId" value=""/>
+            		
+            <INPUT type="hidden" name="kingYear" id="kingYear" value=""/>
+            		
+            <INPUT type="hidden" name="dateOccured" id="dateOccured" value=""/>
+                    
+            <INPUT type="hidden" name="levelId" id="levelId" value=""/>
+                    
+            <INPUT type="hidden" name="synonym" id="synonym" value="off"/>
+            	    
+            <INPUT type="hidden" name="chinessChar" id="chinessChar" value="on"/>
+            	    
+            <INPUT type="hidden" name="searchTermImages" id="searchTermImages" value=""/>
+            	
+        </FORM>
+        	
+        <FORM id="totalSearchForm" method="get" action="/KOREA/search/searchResult.do">
+            		
+            <INPUT type="hidden" name="sort" id="sort" value="levelId"/>
+             
+		
+            <INPUT type="hidden" name="dir" id="dir" value="ASC"/>
+             
+		
+            <INPUT type="hidden" name="start" id="start" value="-1"/>
+             
+		
+            <INPUT type="hidden" name="limit" id="limit" value="20"/>
+             
+		
+            <INPUT type="hidden" name="page" id="page" value="1"/>
+            		
+            <INPUT type="hidden" name="pre_page" id="pre_page" value="1"/>
+            		
+            <INPUT type="hidden" name="codeIds" id="codeIds" value="PERIOD-0-3"/>
+            		
+            <INPUT type="hidden" name="synonym" id="synonym" value="off"/>
+            	    
+            <INPUT type="hidden" name="chinessChar" id="chinessChar" value="on"/>
+            	    
+            <INPUT type="hidden" name="searchTermImages" id="searchTermImages" value=""/>
+            	
+        </FORM>
+        	
+        <FORM id="itemSearchForm" method="get" action="/KOREA/search/searchResultList.do">
+            		
+            <INPUT type="hidden" name="sort" id="sort" value=""/>
+             
+		
+            <INPUT type="hidden" name="dir" id="dir" value=""/>
+            		
+            <INPUT type="hidden" name="start" id="start" value="-1"/>
+             
+		
+            <INPUT type="hidden" name="limit" id="limit" value=""/>
+             
+		
+            <INPUT type="hidden" name="page" id="page" value=""/>
+             
+		
+            <INPUT type="hidden" name="pre_page" id="pre_page" value=""/>
+            		
+            <INPUT type="hidden" name="setId" id="setId" value=""/>
+             
+		
+            <INPUT type="hidden" name="totalCount" id="totalCount" value=""/>
+             
+		
+            <INPUT type="hidden" name="kristalProtocol" id="kristalProtocol" value=""/>
+             
+		
+            <INPUT type="hidden" name="itemId" id="itemId" value="kj"/>
+            		
+            <INPUT type="hidden" name="synonym" id="synonym" value="off"/>
+            	    
+            <INPUT type="hidden" name="chinessChar" id="chinessChar" value="on"/>
+            	    
+            <INPUT type="hidden" name="searchTermImages" id="searchTermImages" value=""/>
+            	
+        </FORM>
+        	
+        <FORM id="thesaurusForm" method="get" action="/KOREA/search/thesaurus.do">
+            		
+            <INPUT type="hidden" name="searchword" id="searchword" value=""/>
+            	
+        </FORM>
+        	
+        <DIV id="spin_ctnArea" style="position: absolute; padding: 0px; margin: 0px; border: 0px; zoom: 1;  width: 100%; height: 100%; left: 0px; top: 0px; z-index: 1000; display:none;"/>
+        
+        <DIV id="cluetip-waitimage" style="position: absolute; display: none;"/>
+        <DIV id="cluetip" style="position: absolute; display: none;">
+            <DIV class="cluetip-outer" style="position: relative; z-index: 97;">
+                <H3 class="cluetip-title ui-widget-header ui-cluetip-header"/>
+                <DIV class="cluetip-inner ui-widget-content ui-cluetip-content"/>
+            </DIV>
+            <DIV class="cluetip-extra"/>
+        </DIV>
+    </BODY>
+</HTML>

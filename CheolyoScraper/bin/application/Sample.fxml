@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane prefHeight="505.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PageController">
+   <bottom>
+      <Pane prefHeight="26.0" prefWidth="596.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnPlus" layoutX="546.0" mnemonicParsing="false" onAction="#zoomIn" prefHeight="25.0" prefWidth="25.0" text="+" />
+            <TextField fx:id="txtURL" layoutX="113.0" onKeyPressed="#browse" prefHeight="25.0" prefWidth="432.0" />
+            <Button fx:id="btnRefresh" layoutX="57.0" mnemonicParsing="false" onAction="#refresh" prefHeight="25.0" prefWidth="57.0" text="Refresh" />
+            <Button fx:id="btnMinus" layoutX="571.0" mnemonicParsing="false" onAction="#zoomOut" prefHeight="25.0" prefWidth="25.0" text="-" />
+            <Button fx:id="btnExecute" mnemonicParsing="false" onAction="#execute" prefHeight="25.0" prefWidth="57.0" text="Execute" />
+         </children>
+      </Pane>
+   </bottom>
+   <top>
+      <TextArea fx:id="txaResult" prefHeight="201.0" prefWidth="596.0" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <WebView fx:id="webView" prefHeight="215.0" prefWidth="596.0" />
+            <Label fx:id="lblTimeTaken" layoutX="14.0" layoutY="225.0" text="Time Taken: " />
+            <CheckBox fx:id="chkAddRef" layoutX="232.0" layoutY="225.0" mnemonicParsing="false" text="Add Ref" />
+            <CheckBox fx:id="chkDateless" layoutX="140.0" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#datelessClicked" text="Dateless" />
+            <Button fx:id="btnMakeNewPage" layoutX="317.0" layoutY="221.0" mnemonicParsing="false" onAction="#newMainPage" prefHeight="25.0" prefWidth="73.0" text="New Page" />
+            <TextField fx:id="txtYearsAmount" layoutX="390.0" layoutY="221.0" prefHeight="25.0" prefWidth="33.0" />
+            <TextField fx:id="txtSeason" layoutX="373.0" layoutY="252.0" prefHeight="25.0" prefWidth="48.0" />
+            <Label layoutX="317.0" layoutY="254.0" text="Season:" />
+            <CheckBox fx:id="chkWeirdSeasons" layoutX="14.0" layoutY="253.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="105.0" text="Weird Seasons" />
+            <TextField fx:id="txtDirectory" layoutX="438.0" layoutY="251.0" />
+            <CheckBox fx:id="chkFileMode" layoutX="438.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#chkFileModeClicked" prefHeight="17.0" prefWidth="81.0" text="File Mode" />
+            <CheckBox fx:id="chkHeaderless" disable="true" layoutX="232.0" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#datelessClicked" text="Headerless" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
